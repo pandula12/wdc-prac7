@@ -21,8 +21,8 @@ router.get('/brew', function(req, res) {
 
 var count = 0;
 var messageArray = [];
-router.get('/pass-it-on', function(req, res) {
-  var q = req.query.message;
+router.post('/pass-it-on', function(req, res) {
+  var q = req.body.message;
   if (q) {
     if (count == 0) {
       res.send("first")
