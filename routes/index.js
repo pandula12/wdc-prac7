@@ -43,19 +43,10 @@ router.post('/combine', function (req, res) {
   var linesArray = req.body.lines;
   var string = ""
   var suf = req.body.suffix;
-  var count = 0;
   linesArray.forEach(function (el, index) {
-    count++;
+    string = string + el + suf + "\n";
   });
-  count = count - 1;
-  linesArray.forEach(function (el, index) {
-    if (index == count) {
-      string = string + el + suf
-    }
-    else {
-      string = string + el + suf + "\n"
-    }
-  });
+  
   res.send(string);
 });
 
