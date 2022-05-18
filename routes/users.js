@@ -7,14 +7,11 @@ router.get('/', function(req, res, next) {
 });
 
 var blogList = [];
-var blogListReverse = [];
-var count = 0;
 
 router.post('/addpost', function(req, res) {
   if (req.body.hasOwnProperty("title") && req.body.hasOwnProperty("content")) {
     blogList.push(req.body);
   }
-  count++;
   res.send();
 }); 
 
