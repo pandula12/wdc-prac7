@@ -14,7 +14,6 @@ function recieve() {
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
             blogs = JSON.parse(this.responseText);
-            blogs = blogs.reverse();
             var e = document.getElementById("post-list");
             var child = e.lastElementChild;
             while (child) {
@@ -42,4 +41,5 @@ function recieve() {
 
 
 }
+
 
