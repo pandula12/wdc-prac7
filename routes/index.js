@@ -46,8 +46,20 @@ router.post('/combine', function (req, res) {
   linesArray.forEach(function (el, index) {
     string = string + el + suf + "\n";
   });
-  
+
   res.send(string);
 });
+
+router.get('/cookie', function (req, res) {
+  if ('task3_1' in req.cookies) {
+    let temp = Number(req.cookies.task3_1) + Number('1');
+    let cookieCounter = temp.toString();
+    res.cookie('task3_1', cookieCounter);
+  } 
+  else {
+    res.cookie('task3_1', "1");
+  }
+  res.send();
+})
 
 module.exports = router;
