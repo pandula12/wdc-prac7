@@ -14,6 +14,7 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
 app.use(requestCounter);
+app.post(['/users','/users/*'], userPostCounter);
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -22,10 +23,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var requestCount = 1;
 function requestCounter(req, res, next) {
-  console.log(requestCount);
+  console.log("Received "+requestCount+" requests");
   requestCount++;
   next();
 }
+
+function userPostCounter(req, res, next) {
+  console.log("POST from a user");
+  next();
+}
+
+
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
